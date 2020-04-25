@@ -81,6 +81,10 @@ class SlideShow extends React.PureComponent {
 
   goTo(activeIndex) {
     this.setState({activeIndex});
+    
+    if (typeof this.props.onChange === 'function') {
+      this.props.onChange(activeIndex);
+    }
   }
 
   updateNavigationStatus(nextStatus) {
